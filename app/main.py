@@ -18,5 +18,10 @@ app = FastAPI(
     swagger_ui_parameters={"defaultModelsExpandDepth": -1},
 )
 
+
+@app.get("/")
+def read_root():
+    return {"message": "FastAPI + Docker Compose is running 🚀"}
+
 app.include_router(auth.router)
 app.include_router(movies.router)
